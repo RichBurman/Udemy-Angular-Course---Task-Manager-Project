@@ -8,9 +8,14 @@ import { Component, computed, EventEmitter, Input, input, Output, output } from 
   styleUrl: './users.component.css'
 })
 export class UsersComponent {
-  @Input({ required: true }) id!: string
-  @Input({ required: true }) avatar!: string;
-  @Input({ required: true }) name!: string;
+  @Input({ required: true }) user!: {
+    id: string;
+    avatar: string;
+    name: string;
+  }
+  // @Input({ required: true }) id!: string
+  // @Input({ required: true }) avatar!: string;
+  // @Input({ required: true }) name!: string;
   @Output() select = new EventEmitter<string>();
   // select = output<string>();
   // avatar = input.required<string>();
@@ -21,11 +26,11 @@ export class UsersComponent {
   // });
 
   get imagePath() {
-    return 'assets/users/' + this.avatar;
+    return 'assets/users/' + this.user.avatar;
   }
 
   onSelectUser() {
-    this.select.emit(this.id);
+    this.select.emit(this.user.id);
   }
 }
 
