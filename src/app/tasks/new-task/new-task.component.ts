@@ -14,6 +14,11 @@ enteredTitle = '';
 enteredSummary = '';
 enteredDate = '';
 
+// how to set up with signals. 
+// enteredTitle = signal('');
+// enteredSummary = signal('');
+// enteredDate = signal('');
+
   onCancel() {
     this.cancel.emit();
   }
