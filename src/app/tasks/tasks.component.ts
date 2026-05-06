@@ -41,4 +41,9 @@ export class TasksComponent {
   get selectedUserTasks() {
     return this.tasks.filter((task) => task.userId === this.userId )
   }
+
+  onCompleteTask(id: string) {
+    // creates a new array containing only tasks whose id is not equal to the clicked task id.
+    this.tasks = this.tasks.filter((task) => task.id !== id) 
+  }
 }
